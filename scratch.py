@@ -1,6 +1,4 @@
 import wmi
-import sys
-import os
 import socket
 import win32clipboard
 from tkinter import *
