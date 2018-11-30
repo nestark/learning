@@ -19,7 +19,6 @@ class Application(Frame):
             mess.append(a)
 
     def send_to_clibboard(self):
-        print(mess)
         sent=''
         win32clipboard.OpenClipboard()
         win32clipboard.EmptyClipboard()
