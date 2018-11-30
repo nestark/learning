@@ -20,9 +20,12 @@ class Application(Frame):
 
     def send_to_clibboard(self):
         print(mess)
+        sent=''
         win32clipboard.OpenClipboard()
         win32clipboard.EmptyClipboard()
-        win32clipboard.SetClipboardData(win32clipboard.CF_UNICODETEXT, str(mess))
+        for b in mess:
+            sent+=b+'\n'
+        win32clipboard.SetClipboardData(win32clipboard.CF_UNICODETEXT, sent)
         win32clipboard.CloseClipboard()
 
     def creatButton(self):
