@@ -1,6 +1,4 @@
 import wmi
-import sys
-import os
 import socket
 import win32clipboard
 from tkinter import *
@@ -23,7 +21,7 @@ class Application(Frame):
         win32clipboard.OpenClipboard()
         win32clipboard.EmptyClipboard()
         for b in mess:
-            sent+=b+'\n'
+            sent += b+'\n'
         win32clipboard.SetClipboardData(win32clipboard.CF_UNICODETEXT, sent)
         win32clipboard.CloseClipboard()
 
