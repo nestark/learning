@@ -1,7 +1,7 @@
-import wmi
-import socket
+from wmi import WMI
+from socket import gethostbyname
 import win32clipboard
-from tkinter import *
+from tkinter import Frame, Label, Button
 mess = []
 
 
@@ -28,24 +28,20 @@ class Application(Frame):
 
     def creatButton(self):
         self.okButton = Button(self, text='OK',width=10,height=1, command=self.quit)
-        self.okButton.grid(row=4,column=0,sticky=W)
+        self.okButton.grid(row=4,column=0,sticky='w')
         self.copybutton = Button(self, text='复制',width=10,height=1, command=self.send_to_clibboard)
-        self.copybutton.grid(row=4, column=0,sticky=E)
+        self.copybutton.grid(row=4, column=0,sticky='e')
 
 
 def sys_version(option):
-    c = wmi.WMI()
+    c = WMI()
     # 获取操作系统版本
     for sys in c.Win32_OperatingSystem():
         sysver = "系统版本:%s" % sys.Caption + ' ' + "版本号:%s" % sys.Version  # 系统版本及版本号
         compname = "计算机名:%s" % sys.CSname  # 计算机名
-        ip = "IP地址:%s" % socket.gethostbyname(sys.CSname)# 用计算机名获取IP地址
+        ip = "IP地址:%s" % gethostbyname(sys.CSname)# 用计算机名获取IP地址
     for cs in c.Win32_ComputerSystem():
         username = "用户名:%s" % cs.Username  # 用户账号名
-    '''for interface in c.Win32_NetworkAdapterConfiguration(IPEnabled=1):
-        for ip_address in interface.IPAddress[0]:
-            ip=ip_address
-            print(ip)'''
     if option == 'sysver':
         return sysver
     elif option == 'copname':
