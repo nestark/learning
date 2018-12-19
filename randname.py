@@ -28,15 +28,16 @@ class Application(Frame):
             name = 'You input nothing!'
         else:
             listed = list(x for x in names.split())  # 将输入的字符串以空格分割
-            self.choosed = self.randomselect(listed)
+            self.choosed = randomselect(listed)
             name = self.choosed
         messagebox.showinfo(title='Congrats!', message=name)
 
-    def randomselect(self, nlist):
-        """输入一个列表，返回列表中的一个随机元素"""
-        a = random.randint(0, len(nlist) - 1)
-        b = nlist[a]
-        return b
+
+def randomselect(nlist):
+    """输入一个列表，返回列表中的一个随机元素"""
+    a = random.randint(0, len(nlist) - 1)
+    b = nlist[a]
+    return b
 
 
 if __name__ == "__main__":
