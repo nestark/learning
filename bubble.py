@@ -1,18 +1,13 @@
 def bubblesort(a):
     lenth = len(a)-1
+
     for n in range(lenth):
-        while n<lenth:
-            if a[n] > a[n+1]:
-                b = a[n+1]
-                a[n+1] = a[n]
-                a[n] = b
-                n += 1
-            else:
-                n += 1
+        for i in range(lenth-n):
+            if a[i] > a[i+1]:
+                a[i],a[i+1]=a[i+1],a[i]
     print(a)
 
-
-mes = input('Please input a list of number, divided by space:')
-nums = list(int(x) for x in mes.split())
+mes = input('Please input a list of number, divided by commas:')
+nums = list(int(x) for x in mes.split(sep=','))
 print(nums)
 bubblesort(nums)
