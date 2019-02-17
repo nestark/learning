@@ -9,7 +9,6 @@ class Application(Frame):
     def __init__(self, master=None):
         Frame.__init__(self, master)
         self.grid()
-        self.createWidgets()
 
     def createWidgets(self, *info):
         for a in info:
@@ -28,9 +27,9 @@ class Application(Frame):
 
     def creatButton(self):
         self.okButton = Button(self, text='OK',width=10,height=1, command=self.quit)
-        self.okButton.grid(row=4,column=0,sticky='w')
+        self.okButton.grid(row=4,sticky='sw')
         self.copybutton = Button(self, text='复制',width=10,height=1, command=self.send_to_clibboard)
-        self.copybutton.grid(row=4, column=0,sticky='e')
+        self.copybutton.grid(row=4, column=0,sticky='se')
 
 
 def sys_version(option):
@@ -60,5 +59,6 @@ app = Application()
 app.createWidgets(version, hostname, usern, ipad)
 app.master.title('Help Info')
 app.creatButton()
+app.master.resizable(width=False, height=False)
 # 主消息循环:
 app.mainloop()
