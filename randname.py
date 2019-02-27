@@ -39,7 +39,6 @@ def randomselect(nlist):
     b = nlist[a]
     return b
 
-
 if __name__ == "__main__":
     nameselect = Application()
     nameselect.master.title('Roll a Dice!')
