@@ -10,14 +10,14 @@ class Application(Frame):
         self.roll()
 
     def createWidgets(self):
-        self.hellolabel = Label(self, text='Enter names', font=(20), width=20, height=2)
+        self.hellolabel = Label(self, text='Enter names', font=(20), width=20, height=2, foreground='purple')
         self.hellolabel.grid()
         self.nameInput = Entry(self, width=20)  # 创建文本输入框
         self.nameInput.grid()
 
     def roll(self):
         self.rollbutton = Button(self, text='Roll!', width=10, height=1, activeforeground='red',
-                                 activebackground='blue',
+                                 activebackground='pink',
                                  command=self.hello)  # 创建按钮，设定大小和前景色背景色，点击运行hello函数
         self.rollbutton.grid(sticky='s')
 
@@ -41,7 +41,7 @@ def randomselect(nlist):
 
 if __name__ == "__main__":
     nameselect = Application()
-    nameselect.master.title('Roll a Dice!')
+    nameselect.master.title('RaD!')
     nameselect.master.geometry('200x100')
     nameselect.master.resizable(width=False, height=False)
     nameselect.mainloop()
